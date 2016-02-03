@@ -1,0 +1,20 @@
+Fitter Status : Successful - Mon Feb 01 10:20:18 2016
+Quartus Prime Version : 15.1.0 Build 185 10/21/2015 SJ Lite Edition
+Revision Name : CDEC_on_DE0_Memory_Editor
+Top-level Entity Name : CDEC_on_DE0_Memory_Editor
+Family : Cyclone V
+Device : 5CEBA4F23C7
+Timing Models : Final
+Logic utilization (in ALMs) : 1,404 / 18,480 ( 8 % )
+Total registers : 1976
+Total pins : 206 / 224 ( 92 % )
+Total virtual pins : 0
+Total block memory bits : 1,037,440 / 3,153,920 ( 33 % )
+Total RAM Blocks : 135 / 308 ( 44 % )
+Total DSP Blocks : 0 / 66 ( 0 % )
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 1 / 4 ( 25 % )
+Total DLLs : 0 / 4 ( 0 % )

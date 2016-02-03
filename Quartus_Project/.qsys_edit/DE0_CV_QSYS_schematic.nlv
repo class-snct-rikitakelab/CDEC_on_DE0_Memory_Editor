@@ -1,0 +1,35 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst DE0_CV_QSYS.uart_0 -pg 1 -lvl 2 -y 370
+preplace inst DE0_CV_QSYS.timer -pg 1 -lvl 2 -y 270
+preplace inst DE0_CV_QSYS.sysid_qsys -pg 1 -lvl 2 -y 570
+preplace inst DE0_CV_QSYS.sdram -pg 1 -lvl 2 -y 1050
+preplace inst DE0_CV_QSYS.pll -pg 1 -lvl 2 -y 1170
+preplace inst DE0_CV_QSYS.clk_50 -pg 1 -lvl 1 -y 1190
+preplace inst DE0_CV_QSYS.pio_mode_selout -pg 1 -lvl 2 -y 950
+preplace inst DE0_CV_QSYS.pio_io_inout -pg 1 -lvl 2 -y 750
+preplace inst DE0_CV_QSYS.onchip_memory2 -pg 1 -lvl 2 -y 490
+preplace inst DE0_CV_QSYS.pio_keyout -pg 1 -lvl 2 -y 850
+preplace inst DE0_CV_QSYS.nios2_qsys -pg 1 -lvl 1 -y 30
+preplace inst DE0_CV_QSYS.pio_datain -pg 1 -lvl 2 -y 650
+preplace inst DE0_CV_QSYS.key -pg 1 -lvl 2 -y 50
+preplace inst DE0_CV_QSYS.jtag_uart -pg 1 -lvl 2 -y 170
+preplace inst DE0_CV_QSYS -pg 1 -lvl 1 -y 40 -regy -20
+preplace netloc EXPORT<net_container>DE0_CV_QSYS</net_container>(SLAVE)key.external_connection,(SLAVE)DE0_CV_QSYS.key_external_connection) 1 0 2 NJ 180 NJ
+preplace netloc INTERCONNECT<net_container>DE0_CV_QSYS</net_container>(SLAVE)sysid_qsys.control_slave,(SLAVE)pio_mode_selout.s1,(SLAVE)pio_io_inout.s1,(SLAVE)timer.s1,(SLAVE)pio_datain.s1,(SLAVE)nios2_qsys.jtag_debug_module,(SLAVE)onchip_memory2.s1,(SLAVE)key.s1,(MASTER)nios2_qsys.instruction_master,(MASTER)nios2_qsys.data_master,(SLAVE)jtag_uart.avalon_jtag_slave,(SLAVE)pio_keyout.s1,(SLAVE)sdram.s1,(SLAVE)uart_0.s1) 1 0 2 180 220 470
+preplace netloc POINT_TO_POINT<net_container>DE0_CV_QSYS</net_container>(MASTER)clk_50.clk,(SLAVE)pll.refclk) 1 1 1 N
+preplace netloc EXPORT<net_container>DE0_CV_QSYS</net_container>(SLAVE)DE0_CV_QSYS.sdram_wire,(SLAVE)sdram.wire) 1 0 2 NJ 1120 NJ
+preplace netloc EXPORT<net_container>DE0_CV_QSYS</net_container>(SLAVE)DE0_CV_QSYS.uart_0,(SLAVE)uart_0.external_connection) 1 0 2 NJ 400 NJ
+preplace netloc EXPORT<net_container>DE0_CV_QSYS</net_container>(SLAVE)DE0_CV_QSYS.reset,(SLAVE)clk_50.clk_in_reset) 1 0 1 NJ
+preplace netloc EXPORT<net_container>DE0_CV_QSYS</net_container>(SLAVE)DE0_CV_QSYS.pio_datain,(SLAVE)pio_datain.external_connection) 1 0 2 NJ 680 NJ
+preplace netloc FAN_OUT<net_container>DE0_CV_QSYS</net_container>(SLAVE)jtag_uart.irq,(SLAVE)key.irq,(SLAVE)uart_0.irq,(SLAVE)timer.irq,(MASTER)nios2_qsys.d_irq) 1 1 1 530
+preplace netloc FAN_OUT<net_container>DE0_CV_QSYS</net_container>(SLAVE)sysid_qsys.clk,(SLAVE)pio_keyout.clk,(SLAVE)sdram.clk,(SLAVE)pio_io_inout.clk,(MASTER)pll.outclk0,(SLAVE)nios2_qsys.clk,(SLAVE)jtag_uart.clk,(SLAVE)uart_0.clk,(SLAVE)onchip_memory2.clk1,(SLAVE)pio_datain.clk,(SLAVE)timer.clk,(SLAVE)pio_mode_selout.clk,(SLAVE)key.clk) 1 0 3 200 160 550 1160 740
+preplace netloc EXPORT<net_container>DE0_CV_QSYS</net_container>(SLAVE)DE0_CV_QSYS.pio_keyout,(SLAVE)pio_keyout.external_connection) 1 0 2 NJ 880 NJ
+preplace netloc EXPORT<net_container>DE0_CV_QSYS</net_container>(SLAVE)pio_io_inout.external_connection,(SLAVE)DE0_CV_QSYS.pio_io_inout) 1 0 2 NJ 780 NJ
+preplace netloc EXPORT<net_container>DE0_CV_QSYS</net_container>(MASTER)pll.outclk1,(MASTER)DE0_CV_QSYS.clk_sdram) 1 2 1 N
+preplace netloc INTERCONNECT<net_container>DE0_CV_QSYS</net_container>(SLAVE)sdram.reset,(SLAVE)timer.reset,(SLAVE)jtag_uart.reset,(MASTER)clk_50.clk_reset,(SLAVE)uart_0.reset,(SLAVE)onchip_memory2.reset1,(MASTER)nios2_qsys.jtag_debug_module_reset,(SLAVE)sysid_qsys.reset,(SLAVE)key.reset,(SLAVE)nios2_qsys.reset_n,(SLAVE)pio_mode_selout.reset,(SLAVE)pio_keyout.reset,(SLAVE)pio_datain.reset,(SLAVE)pll.reset,(SLAVE)pio_io_inout.reset) 1 0 2 220 200 490
+preplace netloc EXPORT<net_container>DE0_CV_QSYS</net_container>(SLAVE)pll.locked,(SLAVE)DE0_CV_QSYS.pll_locked) 1 0 2 NJ 1180 NJ
+preplace netloc EXPORT<net_container>DE0_CV_QSYS</net_container>(SLAVE)DE0_CV_QSYS.pio_mode_selout,(SLAVE)pio_mode_selout.external_connection) 1 0 2 NJ 980 NJ
+preplace netloc EXPORT<net_container>DE0_CV_QSYS</net_container>(SLAVE)DE0_CV_QSYS.clk,(SLAVE)clk_50.clk_in) 1 0 1 NJ
+levelinfo -pg 1 0 150 850
+levelinfo -hier DE0_CV_QSYS 160 250 590 760

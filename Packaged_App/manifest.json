@@ -1,0 +1,15 @@
+{
+  "name": "CDEC_on_DE0_Memory_Editor",
+  "description": "CDEC_on_DE0_Memory_Editor",
+  "version": "1.0",
+  "manifest_version": 2,
+  "app": {
+    "background": {
+      "scripts": ["js/background.js"]
+    }
+  },
+  "icons": { "128": "icon.png" },
+  "permissions": [
+     "serial"
+  ]
+}
