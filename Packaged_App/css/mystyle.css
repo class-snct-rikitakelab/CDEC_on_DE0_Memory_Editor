@@ -1,0 +1,14 @@
+html{
+    overflow-y: scroll;
+}
+div.menu1{
+    float:right;
+    padding: 5px;
+}
+div.menu2{
+    float:left;
+    padding: 5px;
+}
+div.menu3{
+    padding: 5px;
+}

@@ -3,16 +3,27 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
         <title>serialsample</title>
         <link rel='stylesheet' href='js/handsontable.full.css' />
-        <link rel='stylesheet' href='./style.css' />
+        <link rel='stylesheet' href='css/font-awesome.min.css' />
+        <link rel='stylesheet' href='css/mystyle.css' />
     </head>
     <body>
         <span>COMポートの選択</span>
         <select value="" id="ports" ></select>
+        
+        <div class="menu1">
+        <a href="#" id="save"><i class="fa fa-floppy-o fa-lg">save</i></a>
+        <a href="#" id="load"><i class="fa fa-folder-open-o fa-lg">load</i></a>
+        </div><br>
+
         <br>
-        <a href="#" id="com-open">open</a>
-        <a href="#" id="com-close">close</a>
-        <a href="#" id="write">write</a>
-        <a href="#" id="read">read</a>
+        <div class="menu2">
+        <a href="#" id="com-open"><i class="fa fa-link fa-lg">connect</i></a><br><br>
+        <a href="#" id="write"><i class="fa fa-download fa-lg">write</i></a>
+        </div>
+        <div class="menu3">
+        <a href="#" id="com-close"><i class="fa fa-unlink fa-lg">disconnect</i></a><br><br>
+        <a href="#" id="read"><i class="fa fa-upload fa-lg">read</i></a><br>
+        </div>
 
         <div id="program" class="handsontable"></div><br>
         

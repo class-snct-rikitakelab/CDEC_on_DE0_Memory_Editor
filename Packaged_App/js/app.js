@@ -71,7 +71,7 @@ var data = [
 
 $("#program").handsontable("loadData", data);
 
-var $comCloseButton, $comOpenButton, $writeButton, $readButton, writeReplyReceiveCallback, readReceiveCallback, serial, serialConfig;
+var $comCloseButton, $comOpenButton, $writeButton, $readButton, $saveButton, $loadButton, writeReplyReceiveCallback, readReceiveCallback, serial, serialConfig;
 
 var buff = "";
 
@@ -82,6 +82,10 @@ $comCloseButton = $('#com-close');
 $writeButton = $('#write');
 
 $readButton = $('#read');
+
+$saveButton = $('#save');
+
+$loadButton = $('#load');
 
 $comOpenButton.click(function(event) {
   return serial.startConnection();
@@ -110,6 +114,47 @@ $readButton.click(function(event) {
   serial.startReadReceive();
   return serial.sendData(message);
 
+});
+
+$saveButton.click(function(event) {
+  chrome.fileSystem.chooseEntry({type: 'saveFile', suggestedName: 'untitled.txt'},function(writableFileEntry) {
+    if (writableFileEntry) {
+       writableFileEntry.createWriter(function(writer){
+         writer.onwriteend = function(e){
+           console.log("success");
+         };
+         var table = $('#program').handsontable('getDataAtCol',0);
+         var str = "";
+         for(var i=0;i<256;i++){
+           str = str + table[i] + "\r\n";
+         }
+         console.log(str);
+         var blob = new Blob([str],{type: 'text/plain'});
+         writer.write(blob);
+       });
+    }
+  });
+
+});
+
+$loadButton.click(function(event) {
+  chrome.fileSystem.chooseEntry({type: 'openFile'},function(readOnlyEntry){
+    if(readOnlyEntry){
+      readOnlyEntry.file(function(file){
+        var reader = new FileReader();
+        reader.onloadend = function(e) {
+          var program = e.target.result.split("\r\n");
+          for(var i=0;i<256;i++){
+            if(program[i].length <2){
+              program[i]="0"+program[i];
+            }
+            $('#program').handsontable('setDataAtCell',i,0,program[i]);
+          }
+        };
+        reader.readAsText(file);
+      });
+    }
+  });
 });
 
 writeReplyReceiveCallback = function(data) {
