@@ -1,11 +1,13 @@
 whiteRenderer = function(instance, td, row, col, prop, value, cellProperties) {
     Handsontable.renderers.TextRenderer.apply(this, arguments);
     td.style.backgroundColor = 'white';
+    td.style.color = 'black';
 };
 
-yellowRenderer = function(instance, td, row, col, prop, value, cellProperties) {
+redRenderer = function(instance, td, row, col, prop, value, cellProperties) {
     Handsontable.renderers.TextRenderer.apply(this, arguments);
-    td.style.backgroundColor = 'yellow';
+    td.style.backgroundColor = 'red';
+    td.style.color = 'white';
 };
 
 var re = /^[0-9a-fA-F]{2}$/;
@@ -45,7 +47,7 @@ $("#program").handsontable({
            if(cellCheck(row)){
              this.renderer = whiteRenderer;
            }else{
-             this.renderer = yellowRenderer;
+             this.renderer = redRenderer;
            }
          }
           
